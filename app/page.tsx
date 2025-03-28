@@ -104,7 +104,7 @@ export default function Home() {
       <Textarea
         ref={textareaRef}
         placeholder="... "
-        className="w-full rounded-md resize-none overflow-hidden px-3 py-3 min-h-10 text-sm border-0 focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 bg-gray-100 dark:bg-gray-950 text-gray-600 dark:text-gray-400 placeholder:text-gray-400 dark:placeholder:text-gray-600"
+        className="w-full rounded-md resize-none overflow-hidden px-3 py-3 min-h-10 text-sm border-0 focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 placeholder:text-gray-400 dark:placeholder:text-gray-600"
         value={text}
         onChange={(e) => setText(e.target.value)}
         rows={1}
@@ -116,10 +116,10 @@ export default function Home() {
             value={summaryType}
             onValueChange={(value: SummaryType) => setSummaryType(value)}
           >
-            <SelectTrigger className="w-full sm:w-[180px] h-10 border-0 focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 bg-gray-100 hover:bg-gray-100/80 text-gray-600 dark:bg-gray-950 dark:hover:bg-gray-950/80 dark:text-gray-400">
+            <SelectTrigger className="w-full sm:w-[180px] h-10 border-0 focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 bg-gray-100 hover:bg-gray-100/80 text-gray-600 dark:bg-gray-800 dark:hover:bg-gray-800/80 dark:text-gray-400">
               <SelectValue placeholder="Summary type" />
             </SelectTrigger>
-            <SelectContent className="bg-gray-100 border-white text-gray-600 dark:bg-gray-950 dark:border-gray-800 dark:text-gray-400">
+            <SelectContent className="bg-gray-100 border-white text-gray-600 dark:bg-gray-800 dark:border-gray-800 dark:text-gray-400">
               <SelectItem value="word">To One Word</SelectItem>
               <SelectItem value="sentence">To One Sentence</SelectItem>
             </SelectContent>
