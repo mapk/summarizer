@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Line clamp utility for truncating text */
+  .line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Add custom styles for the auto-growing textarea */
+.auto-grow-textarea {
+  min-height: 1.5rem;
+  transition: height 0.1s ease;
+}
+
+::selection {
+  background: oklch(0.398 0.195 277.366);
+  color: oklch(0.673 0.182 276.935);
+}

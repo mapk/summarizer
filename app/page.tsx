@@ -93,64 +93,42 @@ export default function Home() {
   };
 
   return (
-    <main className="container mx-auto p-4 max-w-3xl" data-oid="6ydksmc">
-      <div className="relative mt-48 mb-2" data-oid="trcpn.g">
-        <h1
-          className="text-lg text-gray-600 dark:text-gray-400"
-          data-oid="tms56ua"
-        >
+    <main className="container mx-auto p-4 max-w-3xl">
+      <div className="relative mt-48 mb-2">
+        <h1 className="text-base text-gray-600 dark:text-gray-400 mb-4">
           Summarize
         </h1>
-        <ThemeToggle data-oid="zkv_83s" />
+        <ThemeToggle />
       </div>
 
       <Textarea
         ref={textareaRef}
         placeholder="... "
-        className="w-full rounded-md resize-none overflow-hidden px-3 py-3 min-h-10 text-sm/6 border-0 focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 placeholder:text-gray-400 dark:placeholder:text-gray-600"
+        className="w-full rounded-md resize-none overflow-hidden px-3 py-3 min-h-10 text-sm border-0 focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 bg-gray-100 dark:bg-gray-950 text-gray-600 dark:text-gray-400 placeholder:text-gray-400 dark:placeholder:text-gray-600"
         value={text}
         onChange={(e) => setText(e.target.value)}
         rows={1}
-        data-oid="d7b_wvx"
       />
 
-      <div
-        className="flex flex-col sm:flex-row items-center gap-4 mt-4"
-        data-oid="l3iqjhl"
-      >
-        <div
-          className="flex-grow flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
-          data-oid="m85gm7q"
-        >
+      <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
+        <div className="flex-grow flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
           <Select
             value={summaryType}
-            onValueChange={(value) => setSummaryType(value as SummaryType)}
-            data-oid="oou.x8r"
+            onValueChange={(value: SummaryType) => setSummaryType(value)}
           >
-            <SelectTrigger
-              className="w-full sm:w-[180px] h-10 bg-gray-100 hover:bg-gray-100/80 border-gray-100 text-gray-600 dark:bg-gray-900 dark:hover:bg-gray-900/80 dark:border-gray-900 dark:text-gray-400"
-              data-oid="hf.g.zh"
-            >
-              <SelectValue placeholder="Summary type" data-oid="65l9_8." />
+            <SelectTrigger className="w-full sm:w-[180px] h-10 border-0 focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 bg-gray-100 hover:bg-gray-100/80 text-gray-600 dark:bg-gray-950 dark:hover:bg-gray-950/80 dark:text-gray-400">
+              <SelectValue placeholder="Summary type" />
             </SelectTrigger>
-            <SelectContent
-              className="bg-gray-100 border-white text-gray-600 dark:bg-gray-900 dark:border-gray-800 dark:text-gray-400"
-              data-oid="6w83j_f"
-            >
-              <SelectItem value="word" data-oid="xrkc0co">
-                To One Word
-              </SelectItem>
-              <SelectItem value="sentence" data-oid="cnd4i.z">
-                To One Sentence
-              </SelectItem>
+            <SelectContent className="bg-gray-100 border-white text-gray-600 dark:bg-gray-950 dark:border-gray-800 dark:text-gray-400">
+              <SelectItem value="word">To One Word</SelectItem>
+              <SelectItem value="sentence">To One Sentence</SelectItem>
             </SelectContent>
           </Select>
 
           <Button
-            className="w-auto bg-indigo-100 hover:bg-indigo-100/80 text-indigo-600 dark:bg-indigo-900 dark:hover:bg-indigo-900/80 dark:text-indigo-300"
+            className="w-auto h-10 focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 bg-indigo-100 hover:bg-indigo-100/80 text-indigo-600 dark:bg-indigo-950 dark:hover:bg-indigo-900/80 dark:text-indigo-300"
             onClick={handleSummarize}
             disabled={!text.trim() || isLoading}
-            data-oid="3au:s_a"
           >
             {isLoading ? "Summarizing..." : "Summarize"}
           </Button>
@@ -158,33 +136,29 @@ export default function Home() {
       </div>
 
       {entries.length > 0 && (
-        <div className="space-y-4 mt-8" data-oid="mc93j9s">
+        <div className="space-y-4 mt-8">
           {entries.map((entry, index) => (
             <Card
               key={entry.id}
-              className={`overflow-hidden bg-transparent border-0 border-none ${index === 0 ? "" : "blur-sm"} hover:blur-none transition-all duration-520 text-gray-400 dark:text-gray-600 shadow-none`}
-              data-oid="ockkf4c"
+              className={`overflow-hidden bg-transparent border-0 border-none ${
+                index === 0 ? "" : "blur-sm"
+              } hover:blur-none transition-all duration-520 text-gray-400 dark:text-gray-600 shadow-none`}
             >
-              <CardHeader className="py-3 px-0" data-oid="f315nk1">
-                <CardTitle
-                  className="text-lg font-normal text-gray-600 dark:text-gray-400"
-                  data-oid="gaq57sw"
-                >
+              <CardHeader className="py-3 px-0">
+                <CardTitle className="text-base font-normal text-gray-600 dark:text-gray-400">
                   {entry.summaryText}
                 </CardTitle>
-                <div
-                  className="text-xs text-gray-400 dark:text-gray-600"
-                  data-oid="j1nek4c"
-                >
+                <div className="text-xs text-gray-400 dark:text-gray-600">
                   Summarized to one {entry.summaryType} •{" "}
                   {new Date(entry.timestamp).toLocaleString()}
                 </div>
               </CardHeader>
-              <CardContent className="py-3 px-0" data-oid=":z:ub9r">
-                <div className="relative" data-oid="-inb8wm">
+              <CardContent className="py-3 px-0">
+                <div className="relative">
                   <p
-                    className={`text-sm/6 whitespace-pre-wrap ${!expandedEntries[entry.id] ? "line-clamp-4" : ""}`}
-                    data-oid="npciqfk"
+                    className={`text-sm whitespace-pre-wrap ${
+                      !expandedEntries[entry.id] ? "line-clamp-4" : ""
+                    }`}
                   >
                     {entry.originalText}
                   </p>
@@ -193,7 +167,6 @@ export default function Home() {
                     <button
                       onClick={() => toggleExpand(entry.id)}
                       className="text-xs text-indigo-500 hover:text-indigo-600 dark:text-indigo-400 dark:hover:text-indigo-300 mt-1"
-                      data-oid="2alw:2e"
                     >
                       {expandedEntries[entry.id] ? "Show less" : "Show more"}
                     </button>

@@ -6,12 +6,11 @@ const Table = React.forwardRef<
   HTMLTableElement,
   React.HTMLAttributes<HTMLTableElement>
 >(({ className, ...props }, ref) => (
-  <div className="relative w-full overflow-auto" data-oid="pn8pu7b">
+  <div className="relative w-full overflow-auto">
     <table
       ref={ref}
       className={cn("w-full caption-bottom text-sm", className)}
       {...props}
-      data-oid="sz54973"
     />
   </div>
 ));
@@ -21,12 +20,7 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead
-    ref={ref}
-    className={cn("[&_tr]:border-b", className)}
-    {...props}
-    data-oid="hpke:jo"
-  />
+  <thead ref={ref} className={cn("[&_tr]:border-b", className)} {...props} />
 ));
 TableHeader.displayName = "TableHeader";
 
@@ -38,7 +32,6 @@ const TableBody = React.forwardRef<
     ref={ref}
     className={cn("[&_tr:last-child]:border-0", className)}
     {...props}
-    data-oid="jdr7.nl"
   />
 ));
 TableBody.displayName = "TableBody";
@@ -54,7 +47,6 @@ const TableFooter = React.forwardRef<
       className,
     )}
     {...props}
-    data-oid="sgzmd-h"
   />
 ));
 TableFooter.displayName = "TableFooter";
@@ -70,7 +62,6 @@ const TableRow = React.forwardRef<
       className,
     )}
     {...props}
-    data-oid="yrk5qwj"
   />
 ));
 TableRow.displayName = "TableRow";
@@ -86,7 +77,6 @@ const TableHead = React.forwardRef<
       className,
     )}
     {...props}
-    data-oid=":mrzyn_"
   />
 ));
 TableHead.displayName = "TableHead";
@@ -99,7 +89,6 @@ const TableCell = React.forwardRef<
     ref={ref}
     className={cn("p-4 align-middle [&:has([role=checkbox])]:pr-0", className)}
     {...props}
-    data-oid="_du_rh7"
   />
 ));
 TableCell.displayName = "TableCell";
@@ -112,7 +101,6 @@ const TableCaption = React.forwardRef<
     ref={ref}
     className={cn("mt-4 text-sm text-muted-foreground", className)}
     {...props}
-    data-oid="nk2ukb5"
   />
 ));
 TableCaption.displayName = "TableCaption";
