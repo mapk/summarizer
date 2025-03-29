@@ -57,6 +57,9 @@ export default function Home() {
   const handleSummarize = async () => {
     if (!text.trim()) return;
 
+    // Add debouncing to prevent rapid-fire requests
+    if (isLoading) return;
+
     setIsLoading(true);
 
     try {
@@ -80,6 +83,8 @@ export default function Home() {
       }
     } catch (error) {
       console.error("Error summarizing text:", error);
+      // Add user-friendly error message
+      alert("Unable to generate summary. Please try again in a few moments.");
     } finally {
       setIsLoading(false);
     }
