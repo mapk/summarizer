@@ -99,9 +99,9 @@ export default function Home() {
 
   return (
     <main className="container mx-auto p-4 max-w-3xl">
-      <div className="relative mt-48 mb-2">
-        <h1 className="text-base text-gray-600 dark:text-gray-400 mb-4">
-          Summarize
+      <div className="relative mt-48">
+        <h1 className="text-base text-gray-600 dark:text-gray-400 mb-4 leading-none">
+          Boil it down
         </h1>
         <ThemeToggle />
       </div>
