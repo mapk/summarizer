@@ -138,6 +138,18 @@ export default function Home() {
             {isLoading ? "Summarizing..." : "Summarize"}
           </Button>
         </div>
+
+        {entries.length > 0 && (
+          <button
+            onClick={() => {
+              localStorage.removeItem("summaryEntries");
+              setEntries([]);
+            }}
+            className="text-xs text-indigo-500 hover:text-indigo-600 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors"
+          >
+            Clear history
+          </button>
+        )}
       </div>
 
       {entries.length > 0 && (
